@@ -7,7 +7,7 @@ import { urlencoded, json } from 'express';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, { cors: true });
-
+  
   const configService = app.get(ConfigService);
   app.use(morgan('dev')); 
   app.useGlobalPipes(new ValidationPipe({
