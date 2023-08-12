@@ -18,7 +18,7 @@ import { AssignedZonesModule } from './modules/assigned-zones/assigned-zones.mod
     MongooseModule.forRootAsync({
       imports: [ConfigModule],
       useFactory: async (configService: ConfigService) => ({
-        uri: `mongodb://${configService.get('DB_HOST')}:${configService.get('DB_PORT')}/${configService.get('DB_NAME')}`,
+        uri: configService.get('MONGO_URI'),
       }),
       inject: [ConfigService],
     }),
